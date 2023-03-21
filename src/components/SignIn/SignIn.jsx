@@ -1,16 +1,22 @@
 import React from "react";
 
-import "../../App.css";
+import "../../styles/signinstyles.css";
+import SigninForm from "./Signin-form";
 const SignIn = () => {
   return (
     <div>
-      <h1>This is the signin component</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum
-        repudiandae dolorem temporibus quibusdam ratione error omnis similique
-        eum dicta delectus. Debitis voluptatem aperiam temporibus alias labore
-        perferendis dicta deserunt similique.
-      </p>
+      <div className="signin-main__wrapper">
+        <div>
+          <h1>Sign In</h1>
+          <SigninForm />
+
+          <div>
+            <p className="p-alreadyhaveaccount__text">
+              Already have an account? Click <a href="#">here</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,65 @@
+.signin-main__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.signin-main__wrapper h1 {
+  font-size: 56px;
+  text-align: center;
+
+  margin-top: 100px;
+}
+
+.input-uname {
+  width: 500px;
+  height: 36px;
+  padding: 5px;
+
+  color: #202020;
+  text-align: center;
+
+  margin: 30px 0 20px 0;
+}
+
+.input-passw {
+  width: 500px;
+  height: 36px;
+  padding: 5px;
+
+  color: #202020;
+  text-align: center;
+}
+
+.btn-disabled {
+  background-color: transparent;
+  border: none;
+  color: rgba(244, 244, 244, 0.2);
+  margin-top: 10px;
+}
+
+.form-signin__btn {
+  width: 500px;
+  height: 20px;
+
+  margin-top: 10px;
+  background-color: limegreen;
+  border: none;
+
+  cursor: pointer;
+  animation: backcolor 2s;
+}
+
+@keyframes backcolor {
+  from {
+    width: 0;
+    background-color: transparent;
+  }
+  to {
+    width: 100%;
+    background-color: limegreen;
+  }
+}
+
+.p-alreadyhaveaccount__text {
+  margin-top: 50px;
+}
