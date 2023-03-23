@@ -12,3 +12,9 @@
   font-family: "Source Sans Pro", sans-serif;
   letter-spacing: 1px;
 }
+
+.btn-showPass {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

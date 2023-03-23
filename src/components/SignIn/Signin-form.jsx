@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 const SigninForm = () => {
   const [password, setPassword] = useState("");
   const [passwordValidation, setPasswordValidation] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
   const validatePassword = () => {
     return password.length >= 8;
   };
@@ -25,10 +27,17 @@ const SigninForm = () => {
           <br />
           <input
             className="input-passw"
-            type="password"
+            type={showPassword === true ? "text" : "password"}
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          <button
+            type="button"
+            className="btn-showPass"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            show
+          </button>
         </div>
 
         <div>
