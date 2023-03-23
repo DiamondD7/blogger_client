@@ -9,3 +9,10 @@
 
   margin-top: 100px;
 }
+
+.form-main-container__wrapper {
+  width: 700px;
+  height: 500px;
+
+  background-color: white;
+}
