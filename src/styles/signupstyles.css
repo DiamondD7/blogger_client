@@ -1,0 +1,11 @@
+.signup-main__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-main__wrapper h1 {
+  font-size: 56px;
+  text-align: center;
+
+  margin-top: 100px;
+}
