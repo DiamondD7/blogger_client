@@ -18,3 +18,8 @@
   border: none;
   cursor: pointer;
 }
+
+.gosignin-anchor {
+  cursor: pointer;
+  text-decoration: underline;
+}
