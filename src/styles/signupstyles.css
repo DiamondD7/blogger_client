@@ -23,3 +23,84 @@
   border: none;
   cursor: pointer;
 }
+
+.user-fname-lname__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding-top: 20px;
+}
+
+.user-fname__input {
+  width: 200px;
+  padding: 2px 5px;
+  color: #202020;
+
+  font-size: 14px;
+}
+
+.user-lname__input {
+  width: 200px;
+  padding: 2px 5px;
+  color: #202020;
+
+  font-size: 14px;
+}
+
+.user-email__wrapper {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.user-email__input {
+  width: 410px;
+  padding: 2px 5px;
+  color: #202020;
+
+  font-size: 14px;
+}
+
+.user-email__input::placeholder {
+  text-align: center;
+}
+
+.user-mobile-gender__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  padding-top: 5px;
+}
+
+.user-mobile__input {
+  width: 200px;
+  color: #202020;
+  padding: 2px 5px;
+
+  font-size: 14px;
+}
+
+.user-gender__select {
+  width: 205px;
+  color: #202020;
+  padding: 2px 5px;
+
+  font-size: 14px;
+}
+
+.user-gender__select option {
+  color: #202020;
+}
+
+.user-username__wrapper {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.user-username__input {
+  width: 410px;
+  padding: 2px 5px;
+  color: #202020;
+
+  font-size: 14px;
+}
