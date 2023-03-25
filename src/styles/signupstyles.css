@@ -16,3 +16,10 @@
 
   background-color: white;
 }
+
+.signup-btn__submit {
+  color: #202020;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

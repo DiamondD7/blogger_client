@@ -24,6 +24,10 @@ const SignUp = () => {
               <div>
                 <input type="text" placeholder="Username" />
               </div>
+
+              <div>
+                <button className="signup-btn__submit">Submit</button>
+              </div>
             </form>
           </div>
         </div>
