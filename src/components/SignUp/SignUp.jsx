@@ -20,7 +20,9 @@ const SignUp = () => {
           <div className="form-main-container__wrapper">
             <form>
               <div
-                className={`default ${nextPhase === true ? "slideLeft" : ""}`}
+                className={`default ${
+                  nextPhase === true ? "slideLeft" : "default"
+                }`}
               >
                 <div className="user-fname-lname__wrapper">
                   <input
@@ -80,7 +82,7 @@ const SignUp = () => {
               </div>
 
               <div className="nextphase__wrapper" style={transition}>
-                <NextRegisterPhase />
+                <NextRegisterPhase backphase={setNextPhase} />
               </div>
             </form>
           </div>
@@ -90,7 +92,7 @@ const SignUp = () => {
   );
 };
 
-const NextRegisterPhase = () => {
+const NextRegisterPhase = ({ backphase }) => {
   return (
     <div>
       <div>
@@ -113,6 +115,19 @@ const NextRegisterPhase = () => {
           <div>
             <input type="text" placeholder="Question #3" />
             <input type="text" placeholder="Answer" />
+          </div>
+
+          <div>
+            <button
+              type="button"
+              className="signup-btn__submit"
+              onClick={() => backphase(false)}
+            >
+              Back
+            </button>
+            <button type="button" className="signup-btn__submit">
+              Submit
+            </button>
           </div>
         </div>
       </div>
