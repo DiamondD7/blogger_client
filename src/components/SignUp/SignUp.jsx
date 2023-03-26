@@ -56,9 +56,45 @@ const SignUp = () => {
               </div>
 
               <div>
-                <button className="signup-btn__submit">Submit</button>
+                <NextRegisterPhase />
+              </div>
+
+              <div className="signup-btn__wrapper">
+                <button type="button" className="signup-btn__submit">
+                  Next
+                </button>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const NextRegisterPhase = () => {
+  return (
+    <div>
+      <div>
+        <div>
+          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Confirm password" />
+        </div>
+        <div className="security-questions__wrapper">
+          <label>Security Questions</label>
+          <div>
+            <input type="text" placeholder="Question #1" />
+            <input type="text" placeholder="Answer" />
+          </div>
+
+          <div>
+            <input type="text" placeholder="Question #2" />
+            <input type="text" placeholder="Answer" />
+          </div>
+
+          <div>
+            <input type="text" placeholder="Question #3" />
+            <input type="text" placeholder="Answer" />
           </div>
         </div>
       </div>

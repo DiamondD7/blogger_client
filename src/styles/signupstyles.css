@@ -11,24 +11,35 @@
 }
 
 .form-main-container__wrapper {
-  width: 700px;
-  height: 500px;
+  width: 600px;
+  height: 300px;
 
   background-color: white;
 }
 
+.signup-btn__wrapper {
+  text-align: center;
+  padding-top: 15px;
+}
+
 .signup-btn__submit {
-  color: #202020;
+  color: #2f2f2f;
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  font-size: 15px;
+}
+
+.signup-btn__submit:hover {
+  color: black;
 }
 
 .user-fname-lname__wrapper {
   display: flex;
   justify-content: center;
   gap: 5px;
-  padding-top: 20px;
+  padding-top: 50px;
 }
 
 .user-fname__input {
@@ -49,7 +60,7 @@
 
 .user-email__wrapper {
   text-align: center;
-  padding-top: 5px;
+  padding-top: 20px;
 }
 
 .user-email__input {
@@ -69,7 +80,7 @@
   justify-content: center;
   gap: 5px;
 
-  padding-top: 5px;
+  padding-top: 20px;
 }
 
 .user-mobile__input {
@@ -94,7 +105,7 @@
 
 .user-username__wrapper {
   text-align: center;
-  padding-top: 5px;
+  padding-top: 20px;
 }
 
 .user-username__input {
@@ -103,4 +114,8 @@
   color: #202020;
 
   font-size: 14px;
+}
+
+.security-questions__wrapper label {
+  color: #202020;
 }
