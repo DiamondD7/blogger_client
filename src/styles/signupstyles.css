@@ -122,7 +122,40 @@
   top: 30%;
   transform: translate(50%, -50%);
 
-  transition: all.5s ease-in;
+  transition: all 0.5s ease-in;
+  animation: nextphaseslide 0.5s;
+}
+
+.nextphase-slideback {
+  right: 50%;
+  top: 30%;
+  transform: translate(50%, -50%);
+  /* display: block; */
+  animation: nextphasebackslide 0.5s;
+}
+
+@keyframes nextphaseslide {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  47%,
+  100% {
+    opacity: 0;
+    display: block;
+  }
+}
+
+@keyframes nextphasebackslide {
+  0%,
+  90% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
 }
 
 .security-questions__wrapper label {
@@ -136,9 +169,35 @@
   left: 50%;
   top: 17%;
   transform: translate(-50%);
-  transition: all 0.5s ease-out;
+  transition: all 1s ease-out;
+
+  animation: slideBackOpacityAnimation 1s;
 }
 .slideLeft {
   position: absolute;
   left: -400px;
+  animation: slideOpacityAnimation 1s;
+}
+@keyframes slideOpacityAnimation {
+  0% {
+    opacity: 1;
+  }
+  10%,
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes slideBackOpacityAnimation {
+  0%,
+  70% {
+    display: none;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
 }

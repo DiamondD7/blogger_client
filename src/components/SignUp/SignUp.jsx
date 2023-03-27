@@ -4,14 +4,14 @@ import "../../styles/signupstyles.css";
 const SignUp = () => {
   const [nextPhase, setNextPhase] = useState(false);
 
-  const transition = nextPhase
-    ? {
-        right: "50%",
-        top: "30%",
-        transform: "translate(50%, -50%)",
-        display: "block",
-      }
-    : {};
+  // const transition = nextPhase
+  //   ? {
+  //       right: "50%",
+  //       top: "30%",
+  //       transform: "translate(50%, -50%)",
+  //       display: "block",
+  //     }
+  //   : {};
   return (
     <div>
       <div className="signup-main__wrapper">
@@ -81,7 +81,11 @@ const SignUp = () => {
                 </div>
               </div>
 
-              <div className="nextphase__wrapper" style={transition}>
+              <div
+                className={`nextphase__wrapper ${
+                  nextPhase === true ? "nextphase-slideback" : ""
+                }`}
+              >
                 <NextRegisterPhase backphase={setNextPhase} />
               </div>
             </form>
