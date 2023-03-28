@@ -101,35 +101,56 @@ const NextRegisterPhase = ({ backphase }) => {
     <div>
       <div>
         <div>
-          <input type="password" placeholder="Password" />
-          <input type="password" placeholder="Confirm password" />
+          <input
+            className="password-input"
+            type="password"
+            placeholder="Password"
+          />
+          <br />
+          <input
+            className="confirmpassword-input"
+            type="password"
+            placeholder="Confirm password"
+          />
         </div>
         <div className="security-questions__wrapper">
-          <label>Security Questions</label>
+          <h2 className="security-header-text">Security Questions</h2>
           <div>
-            <input type="text" placeholder="Question #1" />
-            <input type="text" placeholder="Answer" />
+            <input
+              className="form-inputs"
+              type="text"
+              placeholder="Question #1"
+            />
+            <input className="form-inputs" type="text" placeholder="Answer" />
           </div>
 
           <div>
-            <input type="text" placeholder="Question #2" />
-            <input type="text" placeholder="Answer" />
+            <input
+              className="form-inputs"
+              type="text"
+              placeholder="Question #2"
+            />
+            <input className="form-inputs" type="text" placeholder="Answer" />
           </div>
 
           <div>
-            <input type="text" placeholder="Question #3" />
-            <input type="text" placeholder="Answer" />
+            <input
+              className="form-inputs"
+              type="text"
+              placeholder="Question #3"
+            />
+            <input className="form-inputs" type="text" placeholder="Answer" />
           </div>
 
           <div>
             <button
               type="button"
-              className="signup-btn__submit"
+              className="signup-btn-nextPhase"
               onClick={() => backphase(false)}
             >
               Back
             </button>
-            <button type="button" className="signup-btn__submit">
+            <button type="button" className="signup-btn-nextPhase">
               Submit
             </button>
           </div>

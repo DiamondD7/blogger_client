@@ -118,7 +118,7 @@
 
 .nextphase__wrapper {
   position: absolute;
-  right: -155px;
+  right: -200px;
   top: 30%;
   transform: translate(50%, -50%);
 
@@ -148,7 +148,7 @@
 
 @keyframes nextphasebackslide {
   0%,
-  90% {
+  95% {
     opacity: 0;
     display: none;
   }
@@ -200,4 +200,50 @@
     opacity: 1;
     display: block;
   }
+}
+
+.form-inputs {
+  width: 200px;
+  padding: 2px 5px;
+  color: #202020;
+
+  font-size: 14px;
+
+  margin-bottom: 10px;
+}
+
+.password-input {
+  width: 400px;
+  padding: 2px 5px;
+  color: #202020;
+
+  font-size: 14px;
+
+  margin-top: 50px;
+}
+
+.confirmpassword-input {
+  width: 400px;
+  padding: 2px 5px;
+  color: #202020;
+
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.security-header-text {
+  color: #202020;
+  font-weight: 400;
+  font-size: 19px;
+
+  margin: 10px 0 10px 0;
+}
+
+.signup-btn-nextPhase {
+  color: #202020;
+  background-color: transparent;
+  border: none;
+
+  margin-right: 10px;
+  cursor: pointer;
 }
