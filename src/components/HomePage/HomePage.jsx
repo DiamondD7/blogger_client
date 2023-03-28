@@ -1,9 +1,13 @@
 import React from "react";
+import Nav from "../Nav/Nav";
 
+import "../../styles/homestyles.css";
 const HomePage = () => {
   return (
     <div>
-      <h1>This is the HomePage</h1>
+      <div className="home-main__wrapper">
+        <Nav />
+      </div>
     </div>
   );
 };
