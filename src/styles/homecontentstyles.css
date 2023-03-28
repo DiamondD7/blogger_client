@@ -1,0 +1,24 @@
+.content-main__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  margin-top: 70px;
+}
+
+.image-blog {
+  width: 400px;
+}
+
+.content-details__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-details__wrapper p {
+  color: rgba(217, 217, 217, 0.66);
+}
+
+.content-link:hover {
+  background-color: rgba(0, 0, 0, 0.21);
+}
