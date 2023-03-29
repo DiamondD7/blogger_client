@@ -12,7 +12,9 @@ const Nav = () => {
             <Link style={{ textDecoration: "none" }}>Home</Link>
           </li>
           <li>
-            <Link style={{ textDecoration: "none" }}>Profile</Link>
+            <Link to="/profile" style={{ textDecoration: "none" }}>
+              Profile
+            </Link>
           </li>
           <li>
             <Link style={{ textDecoration: "none" }}>Find Friends</Link>
