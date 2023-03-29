@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FiFilter } from "react-icons/fi";
 
 import "../../styles/homecontentstyles.css";
 const HomeContent = () => {
   return (
     <div>
-      <div>
-        <p>Filter</p>
+      <div className="filter-icon__wrapper">
+        <button className="filter-icon">
+          <FiFilter size="20px" />
+        </button>
       </div>
       <div className="content-main__wrapper">
         <img

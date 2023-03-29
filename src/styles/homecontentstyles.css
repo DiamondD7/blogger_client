@@ -33,3 +33,14 @@
   border-radius: 50px;
   object-fit: cover;
 }
+
+.filter-icon__wrapper {
+  text-align: start;
+  margin-left: 50px;
+}
+
+.filter-icon {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
