@@ -5,6 +5,9 @@ import "../../styles/homecontentstyles.css";
 const HomeContent = () => {
   return (
     <div>
+      <div>
+        <p>Filter</p>
+      </div>
       <div className="content-main__wrapper">
         <img
           className="image-blog"
