@@ -21,3 +21,22 @@
   height: 100px;
   background-color: rgba(0, 0, 0, 0.21);
 }
+
+.profile-user-summary-second__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.following-follower__wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.following-text {
+  color: rgba(244, 244, 244, 0.6);
+}
+
+.followers-text {
+  color: rgba(244, 244, 244, 0.6);
+}
