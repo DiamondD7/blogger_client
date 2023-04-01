@@ -41,6 +41,23 @@
   color: rgba(244, 244, 244, 0.6);
 }
 
+.profile-summary-pinned__wrapper {
+  display: flex;
+}
+
+.profile-user-pinned__wrapper {
+  margin: 20px 0 0 220px;
+  padding: 10px;
+  width: 400px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.21);
+}
+
+.pinned-icon__text {
+  font-size: 12px;
+  color: rgba(244, 244, 244, 0.4);
+}
+
 .profile-content__wrapper {
   display: grid;
   grid-template-columns: repeat(3, 390px);

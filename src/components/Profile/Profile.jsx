@@ -31,12 +31,22 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="profile-user-summary__wrapper">
-          <div className="profile-user-summary-second__wrapper">
-            <FiGlobe size="17px" />
-            <a href="#" style={{ textDecoration: "none" }}>
-              https://www.mysite.com
-            </a>
+        <div className="profile-summary-pinned__wrapper">
+          <div className="profile-user-summary__wrapper">
+            <div className="profile-user-summary-second__wrapper">
+              <FiGlobe size="17px" />
+              <a href="#" style={{ textDecoration: "none" }}>
+                https://www.mysite.com
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div className="profile-user-pinned__wrapper">
+              <div className="profile-user-summary-second__wrapper">
+                <p className="pinned-icon__text">Pinned</p>
+              </div>
+            </div>
           </div>
         </div>
 
