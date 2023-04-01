@@ -3,6 +3,7 @@ import Nav from "../Nav/Nav";
 import { FiGlobe } from "react-icons/fi";
 
 import "../../styles/profilestyles.css";
+import ProfileContent from "./ProfileContent";
 
 const Profile = () => {
   return (
@@ -37,6 +38,10 @@ const Profile = () => {
               https://www.mysite.com
             </a>
           </div>
+        </div>
+
+        <div>
+          <ProfileContent />
         </div>
       </div>
     </div>
