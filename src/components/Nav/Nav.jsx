@@ -17,10 +17,7 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link style={{ textDecoration: "none" }}>Find Friends</Link>
-          </li>
-          <li>
-            <Link style={{ textDecoration: "none" }}>About</Link>
+            <Link style={{ textDecoration: "none" }}>Explore</Link>
           </li>
         </ul>
       </div>
