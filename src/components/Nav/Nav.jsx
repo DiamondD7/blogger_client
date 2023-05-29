@@ -9,7 +9,9 @@ const Nav = () => {
       <div className="nav-main__wrapper">
         <ul className="nav-ul__wrapper">
           <li>
-            <Link style={{ textDecoration: "none" }}>Home</Link>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              Home
+            </Link>
           </li>
           <li>
             <Link to="/profile" style={{ textDecoration: "none" }}>

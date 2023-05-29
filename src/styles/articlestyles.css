@@ -1,0 +1,29 @@
+.article__wrapper{
+  width: 1200px;
+  height: 100vh;
+
+  overflow: auto;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.author{
+    color: rgba(244, 244, 244, 0.4);
+}
+
+
+.published-date{
+    color: rgba(244, 244, 244, 0.4);
+}
+
+
+.article-paragraph__wrapper{
+    display: flex;
+    gap: 50px;
+
+    margin-top: 20px;
+}
+
+.paragrpah-1{
+    width: 500px;
+}

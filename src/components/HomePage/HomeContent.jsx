@@ -25,6 +25,7 @@ const HomeContent = () => {
             padding: "5px 20px",
             transition: "all 0.2s ease-in",
           }}
+          to="/article"
         >
           <h1>Volleyball club champs to hit Tauranga</h1>
           <div className="content-details__wrapper">
@@ -48,6 +49,7 @@ const HomeContent = () => {
             padding: "5px 20px",
             transition: "all 0.2s ease-in",
           }}
+          to="/article"
         >
           <h1>The Police are rioting. We need to talk about it.</h1>
           <div className="content-details__wrapper">

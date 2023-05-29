@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import SignIn from "./components/SignIn/SignIn";
-
 import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
-import "./App.css";
 import Profile from "./components/Profile/Profile";
+import Article from "./components/Article/Article";
+
+import "./App.css";
 const App = () => {
   const [authorized, setAuthorized] = useState(false);
   return (
     <div>
       <div>
-        {authorized ? (
+        {/* {authorized ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUp />} />
@@ -20,12 +21,13 @@ const App = () => {
           <div className="signin-app__container">
             <SignIn />
           </div>
-        )}
-        {/* <Routes>
+        )} */}
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
-        </Routes> */}
+          <Route path="/article" element={<Article />} />
+        </Routes>
       </div>
     </div>
   );

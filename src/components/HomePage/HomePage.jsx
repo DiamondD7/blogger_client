@@ -1,8 +1,8 @@
 import React from "react";
 import Nav from "../Nav/Nav";
+import HomeContent from "./HomeContent";
 
 import "../../styles/homestyles.css";
-import HomeContent from "./HomeContent";
 const HomePage = () => {
   return (
     <div>
