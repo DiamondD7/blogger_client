@@ -18,12 +18,5 @@
 
 
 .article-paragraph__wrapper{
-    display: flex;
-    gap: 50px;
-
     margin-top: 20px;
-}
-
-.paragrpah-1{
-    width: 500px;
 }
