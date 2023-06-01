@@ -4,14 +4,13 @@ import "../../styles/signupstyles.css";
 const SignUp = () => {
   const [nextPhase, setNextPhase] = useState(false);
 
-  // const transition = nextPhase
-  //   ? {
-  //       right: "50%",
-  //       top: "30%",
-  //       transform: "translate(50%, -50%)",
-  //       display: "block",
-  //     }
-  //   : {};
+  const [userFirstName, setUserFirstName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userMobileNumber, setUserMobileNumber] = useState("");
+  const [userGender, setUserGender] = useState("");
+  const [userUserName, setUserUserName] = useState("");
+
   return (
     <div>
       <div className="signup-main__wrapper">
@@ -29,12 +28,14 @@ const SignUp = () => {
                     className="user-fname__input"
                     type="text"
                     placeholder="First name"
+                    onChange={(e) => setUserFirstName(e.target.value)}
                   />
                   <br />
                   <input
                     className="user-lname__input"
                     type="text"
                     placeholder="Last name"
+                    onChange={(e) => setUserLastName(e.target.value)}
                   />
                 </div>
 
@@ -43,6 +44,7 @@ const SignUp = () => {
                     className="user-email__input"
                     type="text"
                     placeholder="Email"
+                    onChange={(e) => setUserEmail(e.target.value)}
                   />
                 </div>
 
@@ -51,9 +53,13 @@ const SignUp = () => {
                     className="user-mobile__input"
                     type="text"
                     placeholder="Mobile number"
+                    onChange={(e) => setUserMobileNumber(e.target.value)}
                   />
 
-                  <select className="user-gender__select">
+                  <select
+                    className="user-gender__select"
+                    onChange={(e) => setUserGender(e.target.value)}
+                  >
                     <option>Gender</option>
                     <option></option>
                     <option>Female</option>
@@ -67,6 +73,7 @@ const SignUp = () => {
                     className="user-username__input"
                     type="text"
                     placeholder="Username"
+                    onChange={(e) => setUserUserName(e.target.value)}
                   />
                 </div>
 
@@ -86,7 +93,15 @@ const SignUp = () => {
                   nextPhase === true ? "nextphase-slideback" : ""
                 }`}
               >
-                <NextRegisterPhase backphase={setNextPhase} />
+                <NextRegisterPhase
+                  backphase={setNextPhase}
+                  userFirstName={userFirstName}
+                  userLastName={userLastName}
+                  userEmail={userEmail}
+                  userMobileNumber={userMobileNumber}
+                  userGender={userGender}
+                  userUserName={userUserName}
+                />
               </div>
             </form>
           </div>
@@ -96,7 +111,21 @@ const SignUp = () => {
   );
 };
 
-const NextRegisterPhase = ({ backphase }) => {
+const NextRegisterPhase = ({ backphase }, props) => {
+  const [userPassword, setUserPassword] = useState("");
+
+  const [firstQuestion, setFirstQuestion] = useState("");
+  const [secondQuestion, setSecondQuestion] = useState("");
+  const [thirdQuestion, setThirdQuestion] = useState("");
+
+  const [firstAnswer, setFirstAnswer] = useState("");
+  const [secondAnswer, setSecondAnswer] = useState("");
+  const [thirdAnswer, setThirdAnswer] = useState("");
+
+  const AddUser = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <div>
@@ -105,6 +134,7 @@ const NextRegisterPhase = ({ backphase }) => {
             className="password-input"
             type="password"
             placeholder="Password"
+            onChange={(e) => setUserPassword(e.target.value)}
           />
           <br />
           <input
@@ -120,8 +150,14 @@ const NextRegisterPhase = ({ backphase }) => {
               className="form-inputs"
               type="text"
               placeholder="Question #1"
+              onChange={(e) => setFirstQuestion(e.target.value)}
             />
-            <input className="form-inputs" type="text" placeholder="Answer" />
+            <input
+              className="form-inputs"
+              type="text"
+              placeholder="Answer"
+              onChange={(e) => setFirstAnswer(e.target.value)}
+            />
           </div>
 
           <div>
@@ -129,8 +165,14 @@ const NextRegisterPhase = ({ backphase }) => {
               className="form-inputs"
               type="text"
               placeholder="Question #2"
+              onChange={(e) => setSecondQuestion(e.target.value)}
             />
-            <input className="form-inputs" type="text" placeholder="Answer" />
+            <input
+              className="form-inputs"
+              type="text"
+              placeholder="Answer"
+              onChange={(e) => setSecondAnswer(e.target.value)}
+            />
           </div>
 
           <div>
@@ -138,8 +180,14 @@ const NextRegisterPhase = ({ backphase }) => {
               className="form-inputs"
               type="text"
               placeholder="Question #3"
+              onChange={(e) => setThirdQuestion(e.target.value)}
             />
-            <input className="form-inputs" type="text" placeholder="Answer" />
+            <input
+              className="form-inputs"
+              type="text"
+              placeholder="Answer"
+              onChange={(e) => setThirdAnswer(e.target.value)}
+            />
           </div>
 
           <div>
