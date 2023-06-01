@@ -112,7 +112,15 @@ const SignUp = () => {
   );
 };
 
-const NextRegisterPhase = ({ backphase }, props) => {
+const NextRegisterPhase = ({
+  backphase,
+  userUserName,
+  userGender,
+  userMobileNumber,
+  userEmail,
+  userLastName,
+  userFirstName,
+}) => {
   const [userData, setUserData] = useState([]);
   const [userPassword, setUserPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -136,18 +144,18 @@ const NextRegisterPhase = ({ backphase }, props) => {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        UserFirstName: props.userFirstName,
-        UserLastName: props.userLastName,
-        UserEmail: props.userEmail,
-        UserMobileNumber: props.userMobileNumber,
-        UserGender: props.userGender,
-        UserUserName: props.userUserName,
-        UserPassword: props.userPassword,
+        UserFirstName: userFirstName,
+        UserLastName: userLastName,
+        UserEmail: userEmail,
+        UserMobileNumber: userMobileNumber,
+        UserGender: userGender,
+        UserUserName: userUserName,
+        UserPassword: userPassword,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        setUserData(data);
+        console.log(data);
       });
   };
 
