@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { POST_USER } from "../../assets/js/API_AUTH";
 
 import "../../styles/signupstyles.css";
 const SignUp = () => {
@@ -112,7 +113,10 @@ const SignUp = () => {
 };
 
 const NextRegisterPhase = ({ backphase }, props) => {
+  const [userData, setUserData] = useState([]);
   const [userPassword, setUserPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [validPW, setValidPW] = useState(false);
 
   const [firstQuestion, setFirstQuestion] = useState("");
   const [secondQuestion, setSecondQuestion] = useState("");
@@ -124,7 +128,36 @@ const NextRegisterPhase = ({ backphase }, props) => {
 
   const AddUser = (e) => {
     e.preventDefault();
+
+    fetch(`${POST_USER}`, {
+      type: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        UserFirstName: props.userFirstName,
+        UserLastName: props.userLastName,
+        UserEmail: props.userEmail,
+        UserMobileNumber: props.userMobileNumber,
+        UserGender: props.userGender,
+        UserUserName: props.userUserName,
+        UserPassword: props.userPassword,
+      }),
+    })
+      .then((res) => res.json)
+      .then((data) => {
+        setUserData(data);
+      });
   };
+
+  useEffect(() => {
+    if (confirmPassword === userPassword) {
+      setValidPW(true);
+    } else {
+      setValidPW(false);
+    }
+  }, [userPassword, confirmPassword]);
 
   return (
     <div>
@@ -141,6 +174,7 @@ const NextRegisterPhase = ({ backphase }, props) => {
             className="confirmpassword-input"
             type="password"
             placeholder="Confirm password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
         <div className="security-questions__wrapper">
@@ -198,7 +232,15 @@ const NextRegisterPhase = ({ backphase }, props) => {
             >
               Back
             </button>
-            <button type="button" className="signup-btn-nextPhase">
+            <button
+              type="button"
+              className={
+                validPW === true
+                  ? "signup-btn-nextPhase"
+                  : "signup-btn__disabled"
+              }
+              disabled={validPW === true ? false : true}
+            >
               Submit
             </button>
           </div>

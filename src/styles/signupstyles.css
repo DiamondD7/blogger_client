@@ -247,3 +247,11 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+.signup-btn__disabled{
+  color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  border: none;
+
+  margin-right: 10px;
+}
