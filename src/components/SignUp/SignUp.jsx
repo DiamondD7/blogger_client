@@ -129,8 +129,8 @@ const NextRegisterPhase = ({ backphase }, props) => {
   const AddUser = (e) => {
     e.preventDefault();
 
-    fetch(`${POST_USER}`, {
-      type: "POST",
+    fetch(POST_USER, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -240,6 +240,7 @@ const NextRegisterPhase = ({ backphase }, props) => {
                   : "signup-btn__disabled"
               }
               disabled={validPW === true ? false : true}
+              onClick={AddUser}
             >
               Submit
             </button>
