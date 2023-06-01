@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div>
       <div>
-        {/* {authorized ? (
+        {authorized ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUp />} />
@@ -21,13 +21,13 @@ const App = () => {
           <div className="signin-app__container">
             <SignIn />
           </div>
-        )} */}
-        <Routes>
+        )}
+        {/* <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/article" element={<Article />} />
-        </Routes>
+        </Routes> */}
       </div>
     </div>
   );

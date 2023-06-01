@@ -160,7 +160,7 @@ const NextRegisterPhase = ({
   };
 
   useEffect(() => {
-    if (confirmPassword === userPassword) {
+    if (confirmPassword === userPassword && userPassword.length >= 8) {
       setValidPW(true);
     } else {
       setValidPW(false);
@@ -174,7 +174,7 @@ const NextRegisterPhase = ({
           <input
             className="password-input"
             type="password"
-            placeholder="Password"
+            placeholder="Password (must be 8 or more characters long)"
             onChange={(e) => setUserPassword(e.target.value)}
           />
           <br />
