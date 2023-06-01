@@ -145,7 +145,7 @@ const NextRegisterPhase = ({ backphase }, props) => {
         UserPassword: props.userPassword,
       }),
     })
-      .then((res) => res.json)
+      .then((res) => res.json())
       .then((data) => {
         setUserData(data);
       });
