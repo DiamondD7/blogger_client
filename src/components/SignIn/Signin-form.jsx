@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { VALIDATE_PASSWORD } from "../../assets/js/API_AUTH";
 
 const SigninForm = () => {
   const [password, setPassword] = useState("");
   const [passwordValidation, setPasswordValidation] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const [userData, setUserData] = useState([]);
+  const [userUserName, setUserUserName] = useState("");
+
   const validatePassword = () => {
     return password.length >= 8;
   };
@@ -18,12 +23,41 @@ const SigninForm = () => {
     }
   }, [password]);
 
-  console.log(password);
+  const loginClicked = (e) => {
+    e.preventDefault();
+    fetch(VALIDATE_PASSWORD, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        UserFirstName: "firstName",
+        UserLastName: "lastName",
+        UserEmail: "email",
+        UserMobileNumber: "mobilenum",
+        UserGender: "gender",
+        UserUserName: userUserName,
+        UserPassword: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserData(data);
+        console.log(data);
+      });
+  };
+
   return (
     <div>
       <form>
         <div>
-          <input className="input-uname" type="text" placeholder="username" />
+          <input
+            className="input-uname"
+            type="text"
+            placeholder="username"
+            onChange={(e) => setUserUserName(e.target.value)}
+          />
           <br />
           <input
             className="input-passw"
@@ -45,7 +79,8 @@ const SigninForm = () => {
             className={
               passwordValidation === true ? "form-signin__btn" : "btn-disabled"
             }
-            disabled={passwordValidation === true ? "false" : "true"}
+            disabled={passwordValidation === true ? false : true}
+            onClick={loginClicked}
           >
             Submit
           </button>
