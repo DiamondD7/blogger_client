@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { VALIDATE_PASSWORD } from "../../assets/js/API_AUTH";
 
-const SigninForm = () => {
+const SigninForm = ({ setAuthorized }) => {
   const [password, setPassword] = useState("");
   const [passwordValidation, setPasswordValidation] = useState(false);
 
@@ -43,8 +43,13 @@ const SigninForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setUserData(data);
-        console.log(data);
+        if (data === false) {
+          console.log(data);
+        } else {
+          setUserData(data);
+          setAuthorized(true);
+          console.log(data);
+        }
       });
   };
 

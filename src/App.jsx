@@ -19,7 +19,7 @@ const App = () => {
           </Routes>
         ) : (
           <div className="signin-app__container">
-            <SignIn />
+            <SignIn setAuthorized={setAuthorized} />
           </div>
         )}
         {/* <Routes>
