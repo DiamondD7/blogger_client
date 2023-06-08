@@ -9,19 +9,28 @@ import Article from "./components/Article/Article";
 import "./App.css";
 const App = () => {
   const [authorized, setAuthorized] = useState(false);
+  const [loggedUser, setLoggedUser] = useState([]);
+
+  const setAuth = (value) => {
+    setAuthorized(value);
+    localStorage.setItem("authorized", "true");
+  };
   return (
     <div>
       <div>
-        {authorized ? (
+        {localStorage.getItem("authorized") === "true" ? (
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/article" element={<Article />} />
           </Routes>
         ) : (
           <div className="signin-app__container">
-            <SignIn setAuthorized={setAuthorized} />
+            <SignIn setAuthorized={setAuth} loggedUser={setLoggedUser} />
           </div>
         )}
+
         {/* <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />

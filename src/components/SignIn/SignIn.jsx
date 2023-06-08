@@ -4,7 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 
 import "../../styles/signinstyles.css";
 import SignUp from "../SignUp/SignUp";
-const SignIn = ({ setAuthorized }) => {
+const SignIn = ({ setAuthorized, loggedUser }) => {
   const [goToSignIn, setGoToSignIn] = useState(false);
   return (
     <div>
@@ -14,7 +14,7 @@ const SignIn = ({ setAuthorized }) => {
         <div className="signin-main__wrapper">
           <div>
             <h1>Sign In</h1>
-            <SigninForm setAuthorized={setAuthorized} />
+            <SigninForm setAuthorized={setAuthorized} loggedUser={loggedUser} />
 
             <div>
               <p className="p-alreadyhaveaccount__text">
