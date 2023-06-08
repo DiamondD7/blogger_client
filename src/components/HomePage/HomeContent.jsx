@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiFilter } from "react-icons/fi";
+import { Funnel, Plus } from "phosphor-react";
 
 import "../../styles/homecontentstyles.css";
 const HomeContent = () => {
@@ -8,7 +8,10 @@ const HomeContent = () => {
     <div>
       <div className="filter-icon__wrapper">
         <button className="filter-icon">
-          <FiFilter size="20px" />
+          <Funnel size={25} color=" rgba(217, 217, 217, 0.66)" />
+        </button>
+        <button className="filter-icon">
+          <Plus size={25} color=" rgba(217, 217, 217, 0.66)" />
         </button>
       </div>
       <div className="content-main__wrapper">
