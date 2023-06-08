@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import "../../styles/navstyles.css";
 
 const Nav = () => {
+  const setLoggedOff = () => {
+    localStorage.setItem("authorized", "false");
+    window.location.reload();
+  };
   return (
     <div>
       <div className="nav-main__wrapper">
@@ -20,6 +24,15 @@ const Nav = () => {
           </li>
           <li>
             <Link style={{ textDecoration: "none" }}>Explore</Link>
+          </li>
+          <li>
+            <button
+              type="submit"
+              className="nav-signout__btn"
+              onClick={setLoggedOff}
+            >
+              Signout
+            </button>
           </li>
         </ul>
       </div>

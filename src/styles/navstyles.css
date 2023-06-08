@@ -5,3 +5,10 @@
 
   padding-top: 50px;
 }
+
+.nav-signout__btn{
+  border: none;
+  background-color: transparent;
+  font-size: 15.4px;
+  cursor: pointer;
+}
