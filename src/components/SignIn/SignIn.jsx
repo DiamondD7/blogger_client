@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SigninForm from "./Signin-form";
 import { Routes, Route, Link } from "react-router-dom";
 
@@ -6,6 +6,10 @@ import "../../styles/signinstyles.css";
 import SignUp from "../SignUp/SignUp";
 const SignIn = ({ setAuthorized, loggedUser }) => {
   const [goToSignIn, setGoToSignIn] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("authorized", "false");
+  }, []);
   return (
     <div>
       {goToSignIn ? (
