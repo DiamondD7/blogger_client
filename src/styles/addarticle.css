@@ -1,0 +1,50 @@
+label{
+    color: white;
+}
+
+
+.article-editor{
+    width: 100%;
+    height: 780px;
+    margin-top: 30px;
+    color: white;
+}
+
+.form-article-title__input{
+    width: 50%;
+    font-size: 28px;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 0 10px;
+    color: white;
+}
+
+.form-article-description__input{
+    width: 40%;
+    font-size:17px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0 10px;
+}
+
+.form-article-coverpicture__wrapper{
+    margin-top: 10px;
+    color: white;
+}
+
+.form-article-label__text{
+    margin-right: 10px;
+}
+
+.form-article-anon__wrapper{
+    margin-top: 10px;
+}
+
+.form-article-anon__wrapper label {
+    margin-right: 5px;
+}
+.form-article-anon__wrapper input{
+    margin-right: 15px;
+}
