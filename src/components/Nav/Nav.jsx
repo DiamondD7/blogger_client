@@ -13,17 +13,22 @@ const Nav = () => {
       <div className="nav-main__wrapper">
         <ul className="nav-ul__wrapper">
           <li>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               Home
             </Link>
           </li>
           <li>
-            <Link to="/profile" style={{ textDecoration: "none" }}>
+            <Link
+              to="/profile"
+              style={{ textDecoration: "none", color: "white" }}
+            >
               Profile
             </Link>
           </li>
           <li>
-            <Link style={{ textDecoration: "none" }}>Explore</Link>
+            <Link style={{ textDecoration: "none", color: "white" }}>
+              Explore
+            </Link>
           </li>
           <li>
             <button

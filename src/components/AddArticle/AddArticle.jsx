@@ -5,13 +5,13 @@ import "react-quill/dist/quill.snow.css";
 import "../../styles/addarticle.css";
 const AddArticle = () => {
   const [value, setValue] = useState("");
-
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
       [{ font: [] }],
       [{ size: [] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
+      ["bold", "italic", "underline", "strike"],
+      ["blockquote", "code-block"],
       [
         { list: "ordered" },
         { list: "bullet" },
@@ -19,6 +19,11 @@ const AddArticle = () => {
         { indent: "+1" },
       ],
       ["link", "image", "video"],
+      [{ color: [] }, { background: [] }],
+      [{ align: [] }],
+      [{ direction: "rtl" }],
+
+      ["clean"],
     ],
   };
   return (
@@ -33,7 +38,7 @@ const AddArticle = () => {
           <input
             className="form-article-description__input"
             type="text"
-            placeholder="description"
+            placeholder="Description"
           />
         </div>
         <div className="form-article-coverpicture__wrapper">

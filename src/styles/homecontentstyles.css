@@ -1,3 +1,7 @@
+*{
+  color: white;
+}
+
 .content-main__wrapper {
   display: flex;
   align-items: center;
