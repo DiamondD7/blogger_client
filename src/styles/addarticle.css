@@ -40,6 +40,8 @@ label{
 
 .form-article-anon__wrapper{
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .form-article-anon__wrapper label {
@@ -47,4 +49,18 @@ label{
 }
 .form-article-anon__wrapper input{
     margin-right: 15px;
+}
+
+.form-article-submission__wrapper{
+    margin-right: 50px;
+}
+
+
+.form-article-btn__submit{
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: pointer;
+    color: limegreen;
 }

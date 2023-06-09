@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { Link } from "react-router-dom";
 
 import "../../styles/addarticle.css";
 const AddArticle = () => {
@@ -47,23 +48,33 @@ const AddArticle = () => {
         </div>
 
         <div className="form-article-anon__wrapper">
-          <label>Anonymous?</label>
-          <br />
-          <label htmlFor="anonymous">Yes</label>
-          <input
-            type="radio"
-            id="anonymous"
-            value={true}
-            name="anonymousorno"
-          />
+          <div>
+            <label>Anonymous?</label>
+            <br />
+            <label htmlFor="anonymous">Yes</label>
+            <input
+              type="radio"
+              id="anonymous"
+              value={true}
+              name="anonymousorno"
+            />
 
-          <label htmlFor="notanonymous">No</label>
-          <input
-            type="radio"
-            id="notanonymous"
-            value={false}
-            name="anonymousorno"
-          />
+            <label htmlFor="notanonymous">No</label>
+            <input
+              type="radio"
+              id="notanonymous"
+              value={false}
+              name="anonymousorno"
+            />
+          </div>
+          <div className="form-article-submission__wrapper">
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              Cancel
+            </Link>
+            <button type="button" className="form-article-btn__submit">
+              Submit
+            </button>
+          </div>
         </div>
         <ReactQuill
           theme="snow"
