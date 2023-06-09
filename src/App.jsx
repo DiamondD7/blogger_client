@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
 import Profile from "./components/Profile/Profile";
 import Article from "./components/Article/Article";
+import AddArticle from "./components/AddArticle/AddArticle";
 
 import "./App.css";
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/article" element={<Article />} />
+            <Route path="/addarticle" element={<AddArticle />} />
           </Routes>
         ) : (
           <div className="signin-app__container">

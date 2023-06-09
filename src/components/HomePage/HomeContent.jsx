@@ -10,9 +10,16 @@ const HomeContent = () => {
         <button className="filter-icon">
           <Funnel size={25} color=" rgba(217, 217, 217, 0.66)" />
         </button>
-        <button className="filter-icon">
+        <Link
+          to="/addarticle"
+          style={{
+            textDecoration: "none",
+            padding: "5px 20px",
+            transition: "all 0.2s ease-in",
+          }}
+        >
           <Plus size={25} color=" rgba(217, 217, 217, 0.66)" />
-        </button>
+        </Link>
       </div>
       <div className="content-main__wrapper">
         <img
