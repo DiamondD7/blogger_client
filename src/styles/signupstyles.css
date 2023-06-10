@@ -1,6 +1,7 @@
 .signup-main__wrapper {
   display: flex;
   justify-content: center;
+  color: white;
 }
 
 .signup-main__wrapper h1 {

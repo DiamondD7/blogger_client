@@ -1,6 +1,7 @@
 .signin-main__wrapper {
   display: flex;
   justify-content: center;
+  color: white;
 }
 
 .signin-main__wrapper h1 {
@@ -46,6 +47,8 @@
   background-color: limegreen;
   border: none;
 
+  color: white;
+
   cursor: pointer;
   animation: backcolor 2s;
 }
@@ -63,4 +66,8 @@
 
 .p-alreadyhaveaccount__text {
   margin-top: 50px;
+}
+
+.btn-showPass{
+  color: white;
 }
