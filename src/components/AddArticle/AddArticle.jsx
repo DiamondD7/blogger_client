@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "../../styles/addarticle.css";
 const AddArticle = () => {
   const [value, setValue] = useState("");
+  const [coverImage, setCoverImage] = useState(null);
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -43,8 +44,17 @@ const AddArticle = () => {
           />
         </div>
         <div className="form-article-coverpicture__wrapper">
-          <label className="form-article-label__text">Cover Picture</label>
-          <input type="file" />
+          <div>
+            <label className="form-article-label__text">Cover Picture</label>
+            <input
+              id="fileImage"
+              type="file"
+              onChange={(e) => setCoverImage(e.target.value)}
+            />
+          </div>
+          <div>
+            <button disabled={coverImage === null ? true : false}>Save</button>
+          </div>
         </div>
 
         <div className="form-article-anon__wrapper">

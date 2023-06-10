@@ -32,6 +32,16 @@ label{
 .form-article-coverpicture__wrapper{
     margin-top: 10px;
     color: white;
+
+    display: flex;
+}
+
+.form-article-coverpicture__wrapper button{
+    border: none;
+    background-color: transparent;
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .form-article-label__text{
