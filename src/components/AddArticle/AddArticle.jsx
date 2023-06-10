@@ -1,12 +1,23 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import { Link } from "react-router-dom";
+import {
+  GET_POSTS,
+  ADD_POSTS,
+  ADD_POST_IMAGE,
+  DELETE_POST,
+} from "../../assets/js/API_AUTH";
+import ReactQuill from "react-quill";
 
+import "react-quill/dist/quill.snow.css";
 import "../../styles/addarticle.css";
-const AddArticle = () => {
-  const [value, setValue] = useState("");
+
+const AddArticle = ({ loggedUser }) => {
   const [coverImage, setCoverImage] = useState(null);
+  const [description, setDescription] = useState("");
+  const [postTitle, setPostTitle] = useState("");
+  const [postBody, setPostBody] = useState("");
+  const [postImagePathName, setPostImagePathName] = useState("");
+  const [anon, setAnon] = useState("");
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -28,32 +39,80 @@ const AddArticle = () => {
       ["clean"],
     ],
   };
+  const imageOnChange = (e) => {
+    setCoverImage(e.target.files[0]);
+  };
+
+  const savePosts = () => {
+    fetch(ADD_POSTS, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        PostUserId: loggedUser.userId,
+        Description: description,
+        PostTitle: postTitle,
+        isAnon: anon,
+        PostBody: postBody,
+        PostImagePathName: postImagePathName,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+    window.location.reload();
+  };
+
+  const saveImage = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("PostImage", coverImage);
+
+    fetch(ADD_POST_IMAGE, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setPostImagePathName(data.imagePathName);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div>
-      <form className="form-article__wrapper">
+      <form onSubmit={savePosts} className="form-article__wrapper">
         <input
           className="form-article-title__input"
           type="text"
           placeholder="Title"
+          onChange={(e) => setPostTitle(e.target.value)}
         />
         <div>
           <input
             className="form-article-description__input"
             type="text"
             placeholder="Description"
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <div className="form-article-coverpicture__wrapper">
           <div>
             <label className="form-article-label__text">Cover Picture</label>
-            <input
-              id="fileImage"
-              type="file"
-              onChange={(e) => setCoverImage(e.target.value)}
-            />
+            <input type="file" onChange={imageOnChange} />
           </div>
           <div>
-            <button disabled={coverImage === null ? true : false}>Save</button>
+            <button
+              onClick={saveImage}
+              disabled={coverImage === null ? true : false}
+            >
+              Save
+            </button>
           </div>
         </div>
 
@@ -65,31 +124,33 @@ const AddArticle = () => {
             <input
               type="radio"
               id="anonymous"
-              value={true}
+              value="true"
               name="anonymousorno"
+              onChange={(e) => setAnon(e.target.value)}
             />
 
             <label htmlFor="notanonymous">No</label>
             <input
               type="radio"
               id="notanonymous"
-              value={false}
+              value="false"
               name="anonymousorno"
+              onChange={(e) => setAnon(e.target.value)}
             />
           </div>
           <div className="form-article-submission__wrapper">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              Cancel
+              Back
             </Link>
-            <button type="button" className="form-article-btn__submit">
+            <button type="submit" className="form-article-btn__submit">
               Submit
             </button>
           </div>
         </div>
         <ReactQuill
           theme="snow"
-          value={value}
-          onChange={setValue}
+          value={postBody}
+          onChange={setPostBody}
           modules={modules}
           className="article-editor"
         />

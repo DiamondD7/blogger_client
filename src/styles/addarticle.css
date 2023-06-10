@@ -42,6 +42,7 @@ label{
     font-size: 11px;
     text-transform: uppercase;
     cursor: pointer;
+    color: white;
 }
 
 .form-article-label__text{

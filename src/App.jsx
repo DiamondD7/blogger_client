@@ -21,11 +21,14 @@ const App = () => {
       <div>
         {localStorage.getItem("authorized") === "true" ? (
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage loggedUser={loggedUser} />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/article" element={<Article />} />
-            <Route path="/addarticle" element={<AddArticle />} />
+            <Route
+              path="/addarticle"
+              element={<AddArticle loggedUser={loggedUser} />}
+            />
           </Routes>
         ) : (
           <div className="signin-app__container">

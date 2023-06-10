@@ -3,7 +3,7 @@ import Nav from "../Nav/Nav";
 import HomeContent from "./HomeContent";
 
 import "../../styles/homestyles.css";
-const HomePage = () => {
+const HomePage = ({ loggedUser }) => {
   return (
     <div>
       <div className="home-main__wrapper">
