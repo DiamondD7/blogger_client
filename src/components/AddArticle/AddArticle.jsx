@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  GET_POSTS,
-  ADD_POSTS,
-  ADD_POST_IMAGE,
-  DELETE_POST,
-} from "../../assets/js/API_AUTH";
+import { ADD_POSTS, ADD_POST_IMAGE } from "../../assets/js/API_AUTH";
 import ReactQuill from "react-quill";
 
 import "react-quill/dist/quill.snow.css";

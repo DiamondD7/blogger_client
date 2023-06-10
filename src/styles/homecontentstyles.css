@@ -9,6 +9,8 @@
 
 .image-blog {
   width: 400px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .content-details__wrapper {
@@ -47,4 +49,8 @@
   cursor: pointer;
 
  
+}
+
+.author{
+  margin-left: -280px;
 }
