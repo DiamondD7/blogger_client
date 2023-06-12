@@ -13,6 +13,7 @@ const AddArticle = ({ loggedUser }) => {
   const [postBody, setPostBody] = useState("");
   const [postImagePathName, setPostImagePathName] = useState("");
   const [anon, setAnon] = useState("");
+
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],

@@ -27,11 +27,20 @@
   color: rgba(217, 217, 217, 0.66);
 }
 
-.content-link h1 {
+.content-link-btn h1 {
   width: 600px;
 }
 
-.content-link:hover {
+.content-link-btn{
+  background-color: red;
+  border: none;
+  background-color: transparent;
+  padding: 5px 20px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.content-link-btn:hover {
   background-color: rgba(0, 0, 0, 0.21);
 }
 
