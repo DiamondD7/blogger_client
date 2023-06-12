@@ -54,70 +54,42 @@ const HomeContent = () => {
             </Link>
           </div>
 
-          <div className="content-main__wrapper">
-            <img
-              className="image-blog"
-              src="https://images.unsplash.com/photo-1538115081112-32c7d8401807?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt="example pic"
-            />
+          {feedData === null ? (
+            <div>
+              {feedData.map((items) => (
+                <div className="content-main__wrapper" key={items.id}>
+                  <img
+                    className="image-blog"
+                    src={`https://localhost:7167/uploads/${items.postImagePathName}`}
+                    alt="example pic"
+                  />
 
-            <Link
-              className="content-link-btn"
-              style={{
-                textDecoration: "none",
-                padding: "5px 20px",
-                transition: "all 0.2s ease-in",
-              }}
-              to="/article"
-            >
-              <h1>The Police are rioting. We need to talk about it.</h1>
-              <div className="content-details__wrapper">
-                <p>The New York Times</p>
-                <p>5/12/2023</p>
-              </div>
-            </Link>
-          </div>
-
-          {feedData.map((items) => (
-            <div className="content-main__wrapper" key={items.id}>
-              <img
-                className="image-blog"
-                src={`https://localhost:7167/uploads/${items.postImagePathName}`}
-                alt="example pic"
-              />
-
-              {/* <Link
-            className="content-link"
-            style={{
-              textDecoration: "none",
-              padding: "5px 20px",
-              transition: "all 0.2s ease-in",
-            }}
-            to="/article"
-          > */}
-              <button
-                className="content-link-btn"
-                onClick={() => openArticle(items)}
-              >
-                <h1>{items.postTitle}</h1>
-                <div className="content-details__wrapper">
-                  {usersData.map((users) => (
-                    <p key={users.userId} className="author">
-                      {items.postUserId === users.userId &&
-                      items.isAnon === "false"
-                        ? `${users.userFirstName} ${users.userLastName}`
-                        : items.postUserId === users.userId &&
-                          items.isAnon === "true"
-                        ? "Anonymous"
-                        : ""}
-                    </p>
-                  ))}
-                  <p>{moment(items.createdOn).format("DD/MM/YYYY")}</p>
+                  <button
+                    className="content-link-btn"
+                    onClick={() => openArticle(items)}
+                  >
+                    <h1>{items.postTitle}</h1>
+                    <div className="content-details__wrapper">
+                      {usersData.map((users) => (
+                        <p key={users.userId} className="author">
+                          {items.postUserId === users.userId &&
+                          items.isAnon === "false"
+                            ? `${users.userFirstName} ${users.userLastName}`
+                            : items.postUserId === users.userId &&
+                              items.isAnon === "true"
+                            ? "Anonymous"
+                            : ""}
+                        </p>
+                      ))}
+                      <p>{moment(items.createdOn).format("DD/MM/YYYY")}</p>
+                    </div>
+                  </button>
                 </div>
-              </button>
-              {/* </Link> */}
+              ))}
             </div>
-          ))}
+          ) : (
+            <p className="loading-articles"></p>
+          )}
         </div>
       ) : (
         <div>

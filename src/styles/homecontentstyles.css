@@ -68,3 +68,27 @@
 .author{
   margin-left: -280px;
 }
+
+
+.loading-articles{
+  border: 1px solid white;
+  width: 30px;
+  height: 30px;
+
+  border-right: 5px dotted gray;
+  border-radius: 50px;
+  
+  margin: 100px auto 0 auto;
+
+  animation: loadingRotate 1s infinite linear;
+}
+
+
+@keyframes loadingRotate{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
