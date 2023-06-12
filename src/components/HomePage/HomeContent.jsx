@@ -7,7 +7,7 @@ import moment from "moment";
 
 import "../../styles/homecontentstyles.css";
 const HomeContent = () => {
-  const [feedData, setFeedData] = useState([]);
+  const [feedData, setFeedData] = useState(null);
   const [usersData, setUsersData] = useState([]);
   const [articleOpen, setArticleOpen] = useState(false);
 
@@ -54,7 +54,7 @@ const HomeContent = () => {
             </Link>
           </div>
 
-          {feedData === null ? (
+          {feedData !== null ? (
             <div>
               {feedData.map((items) => (
                 <div className="content-main__wrapper" key={items.id}>
