@@ -6,6 +6,23 @@
   margin: auto;
 }
 
+
+.home-main__wrapper::-webkit-scrollbar {
+  border-radius: 50%;
+}
+
+.home-main__wrapper::-webkit-scrollbar-track {
+  background-color: #202020;
+}
+
+.home-main__wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255,0.3);
+  border: 8px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+
 .home-content__wrapper {
   text-align: center;
   margin-top: 100px;
