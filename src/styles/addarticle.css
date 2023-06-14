@@ -86,6 +86,11 @@ label{
     width: 50%;
 }
 
+.save-btn__imageCover::after{
+    content: '*';
+    color: red;
+    font-size: 16px;
+}
 
 
 

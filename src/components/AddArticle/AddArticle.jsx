@@ -105,6 +105,7 @@ const AddArticle = ({ loggedUser }) => {
           </div>
           <div>
             <button
+              className="save-btn__imageCover"
               onClick={saveImage}
               disabled={coverImage === null ? true : false}
             >
