@@ -11,10 +11,12 @@ import "./App.css";
 const App = () => {
   const [authorized, setAuthorized] = useState(false);
   const [loggedUser, setLoggedUser] = useState([]);
+  const [userId, setUserId] = useState(loggedUser.userId);
 
-  const setAuth = (value) => {
+  const setAuth = (value, userid) => {
     setAuthorized(value);
     localStorage.setItem("authorized", "true");
+    localStorage.setItem("id", userid);
   };
   return (
     <div>

@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { GET_POSTS } from "../../assets/js/API_AUTH";
 
 const ProfileContent = () => {
+  useEffect(() => {
+    fetch(GET_POSTS)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
   return (
     <div>
       <div className="profile-content__wrapper">

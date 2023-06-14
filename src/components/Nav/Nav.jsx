@@ -6,6 +6,7 @@ import "../../styles/navstyles.css";
 const Nav = () => {
   const setLoggedOff = () => {
     localStorage.setItem("authorized", "false");
+    localStorage.setItem("id", null);
     window.location.reload();
   };
   return (

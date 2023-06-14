@@ -17,7 +17,6 @@ const HomeContent = () => {
       .then((res) => res.json())
       .then((data) => {
         setFeedData(data);
-        console.log(data);
       });
   }, []);
 

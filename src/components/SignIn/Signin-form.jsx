@@ -47,7 +47,7 @@ const SigninForm = ({ setAuthorized, loggedUser }) => {
           console.log("Invalid username/password");
         } else {
           loggedUser(data);
-          setAuthorized(true);
+          setAuthorized(true, data.userId);
         }
       });
   };
