@@ -85,3 +85,11 @@ label{
     height: 100%;
     width: 50%;
 }
+
+
+
+
+.btn-disabled{
+    color: rgba(0,0,0,0.5);
+    cursor:auto;
+}

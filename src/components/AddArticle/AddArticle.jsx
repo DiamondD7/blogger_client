@@ -7,6 +7,7 @@ import "react-quill/dist/quill.snow.css";
 import "../../styles/addarticle.css";
 
 const AddArticle = ({ loggedUser }) => {
+  const userId = JSON.parse(localStorage.getItem("id"));
   const [coverImage, setCoverImage] = useState(null);
   const [description, setDescription] = useState("");
   const [postTitle, setPostTitle] = useState("");
@@ -47,7 +48,7 @@ const AddArticle = ({ loggedUser }) => {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        PostUserId: loggedUser.userId,
+        PostUserId: userId,
         Description: description,
         PostTitle: postTitle,
         isAnon: anon,
@@ -138,7 +139,13 @@ const AddArticle = ({ loggedUser }) => {
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               Back
             </Link>
-            <button type="submit" className="form-article-btn__submit">
+            <button
+              type="submit"
+              className={`form-article-btn__submit ${
+                postImagePathName === "" ? "btn-disabled" : ""
+              }`}
+              disabled={postImagePathName === "" ? true : false}
+            >
               Submit
             </button>
           </div>
