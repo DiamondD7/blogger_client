@@ -1,9 +1,9 @@
 import React from "react";
 import Nav from "../Nav/Nav";
 import { FiGlobe } from "react-icons/fi";
+import ProfileContent from "./ProfileContent";
 
 import "../../styles/profilestyles.css";
-import ProfileContent from "./ProfileContent";
 
 const Profile = () => {
   return (
@@ -50,7 +50,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <div>
+        <div className="profile-main__wrapper">
           <ProfileContent />
         </div>
       </div>
