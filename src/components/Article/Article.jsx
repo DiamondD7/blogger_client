@@ -5,7 +5,7 @@ import "../../styles/articlestyles.css";
 const Article = ({ openArticle, article }) => {
   return (
     <div>
-      <button onClick={openArticle}>Back</button>
+      <button onClick={(e) => openArticle(e, article)}>Back</button>
       <div className="article__wrapper">
         <div
           className="ql-editor"

@@ -92,3 +92,19 @@
     transform: rotate(360deg);
   }
 }
+
+
+.article-opened__wrapper{
+  position: absolute;
+  top:0;
+  
+  background-color: #202020;
+  width: 1500px;
+  height: 100%;
+  z-index: 5;
+}
+
+
+.hidden{
+  display: none;
+}
