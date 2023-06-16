@@ -18,3 +18,11 @@
 .article-paragraph__wrapper{
     margin-top: 20px;
 }
+
+.btn-back{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    
+}
