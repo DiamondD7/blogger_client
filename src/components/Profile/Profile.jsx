@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "../Nav/Nav";
 import { FiGlobe } from "react-icons/fi";
+import { User, Plus } from "phosphor-react";
 import ProfileContent from "./ProfileContent";
 
 import "../../styles/profilestyles.css";
@@ -14,11 +15,16 @@ const Profile = () => {
         </div>
         <div className="profile-user-details__wrapper">
           <div>
-            <img
+            <label className="btn-image__unknown">
+              <Plus size={12} color="white" />
+              <input type="file" />
+            </label>
+            <User size={70} color="white" />
+            {/* <img
               className="profile-picture__image"
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
               alt="profile-picture"
-            />
+            /> */}
           </div>
           <div>
             <div>
