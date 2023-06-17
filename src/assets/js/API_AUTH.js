@@ -9,6 +9,8 @@ export const VALIDATE_PASSWORD = `${USER_BASE_URL}/CheckPassword`;
 export const POST_USER = `${USER_BASE_URL}/AddUserData`;
 export const PUT_USER = `${USER_BASE_URL}/UpdateUserData`;
 export const DELETE_USER = `${USER_BASE_URL}/DeleteUserData`;
+export const ADD_USER_PICTURE = `${USER_BASE_URL}/AddImage`;
+export const SAVE_USER_PICTURE = `${USER_BASE_URL}/SaveUserProfilePicture`;
 
 // USERS
 

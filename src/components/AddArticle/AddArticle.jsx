@@ -74,7 +74,7 @@ const AddArticle = ({ loggedUser }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data); //delete this
         setPostImagePathName(data.imagePathName);
       })
       .catch((error) => {

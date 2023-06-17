@@ -1,12 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "../Nav/Nav";
 import { FiGlobe } from "react-icons/fi";
 import { User, Plus } from "phosphor-react";
 import ProfileContent from "./ProfileContent";
+import {
+  ADD_USER_PICTURE,
+  SAVE_USER_PICTURE,
+  GET_A_USER,
+  PUT_USER,
+} from "../../assets/js/API_AUTH";
 
 import "../../styles/profilestyles.css";
 
 const Profile = () => {
+  const [userProfilePicture, setUserProfilePicture] = useState(null);
+  const [userImagePathName, setUserImagePathName] = useState("");
+  const [isImageSaved, setIsImageSaved] = useState(false);
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    fetch(`${GET_A_USER}/${localStorage.getItem("id")}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUserData(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    const formData = new FormData();
+    formData.append("UserProfilePicture", userProfilePicture);
+    fetch(ADD_USER_PICTURE, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserImagePathName(data.imagePathName);
+        setIsImageSaved(true);
+      });
+  }, [userProfilePicture]);
+
+  useEffect(() => {
+    if (isImageSaved === true) {
+      fetch(`${PUT_USER}/${localStorage.getItem("id")}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          UserId: userData.userId,
+          UserProfilePicture: userImagePathName,
+          UserFirstName: userData.userFirstName,
+          UserLastName: userData.userLastName,
+          UserEmail: userData.userEmail,
+          UserGender: userData.userGender,
+          UserMobileNumber: userData.userMobileNumber,
+          UserUserName: userData.userUserName,
+          UserPassword: userData.userPassword,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Profile picture updated");
+        });
+    }
+  }, [isImageSaved]);
+
   return (
     <div>
       <div className="home-main__wrapper">
@@ -17,18 +77,32 @@ const Profile = () => {
           <div>
             <label className="btn-image__unknown">
               <Plus size={12} color="white" />
-              <input type="file" />
+              <input
+                type="file"
+                onChange={(e) => setUserProfilePicture(e.target.files[0])}
+              />
             </label>
-            <User size={70} color="white" />
-            {/* <img
-              className="profile-picture__image"
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt="profile-picture"
-            /> */}
+            {userData.userProfilePicture === null ? (
+              <User size={70} color="white" />
+            ) : userData.userProfilePicture !== null ? (
+              <img
+                className="profile-picture__image"
+                src={
+                  isImageSaved === false
+                    ? `https://localhost:7167/userprofilepics/${userData.userProfilePicture}`
+                    : `https://localhost:7167/userprofilepics/${userImagePathName}`
+                }
+                alt="profile-picture"
+              />
+            ) : (
+              ""
+            )}
           </div>
           <div>
             <div>
-              <p>Jackie Simons</p>
+              <p>
+                {userData.userFirstName} {userData.userLastName}
+              </p>
             </div>
 
             <div className="following-follower__wrapper">
