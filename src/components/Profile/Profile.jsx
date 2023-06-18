@@ -18,6 +18,7 @@ const Profile = () => {
   const [userData, setUserData] = useState([]);
   const [editDescription, setEditDescription] = useState(false);
   const [description, setDescription] = useState("");
+
   const [pinnedOne, setPinnedOne] = useState("");
   const [pinnedTwo, setPinnedTwo] = useState("");
   const [pinnedThree, setPinnedThree] = useState("");
@@ -80,7 +81,7 @@ const Profile = () => {
     fetch(`${GET_A_USERPROFILE}/${localStorage.getItem("id")}`)
       .then((res) => res.json())
       .then((data) => {
-        setProfileData(data);
+        setProfileData(data); //stored the whole JSON data
         setDescription(data.description);
         setPinnedOne(data.pinnedOne);
         setPinnedTwo(data.pinnedTwo);
