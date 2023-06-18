@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../Nav/Nav";
-import { FiGlobe } from "react-icons/fi";
-import { User, Plus } from "phosphor-react";
+import { User, Plus, Globe } from "phosphor-react";
 import ProfileContent from "./ProfileContent";
 import {
   ADD_USER_PICTURE,
-  SAVE_USER_PICTURE,
   GET_A_USER,
   PUT_USER,
 } from "../../assets/js/API_AUTH";
@@ -114,7 +112,7 @@ const Profile = () => {
         <div className="profile-summary-pinned__wrapper">
           <div className="profile-user-summary__wrapper">
             <div className="profile-user-summary-second__wrapper">
-              <FiGlobe size="17px" />
+              <Globe size={17} color="#454545" />
               <a href="#" style={{ textDecoration: "none" }}>
                 https://www.mysite.com
               </a>
