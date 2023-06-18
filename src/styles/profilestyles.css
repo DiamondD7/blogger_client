@@ -96,3 +96,12 @@
 input[type="file"]{
   display: none;
 }
+
+.edit-profile-description__button{
+  margin-left: 182px;
+  color: white;
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  cursor: pointer;
+}

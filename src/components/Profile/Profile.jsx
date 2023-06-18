@@ -127,6 +127,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
+        <button className="edit-profile-description__button">EDIT</button>
 
         <div className="profile-main__wrapper">
           <ProfileContent />
