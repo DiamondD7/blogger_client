@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../Nav/Nav";
-import { User, Plus, Globe } from "phosphor-react";
+import { User, Plus } from "phosphor-react";
 import ProfileContent from "./ProfileContent";
 import {
   ADD_USER_PICTURE,
   GET_A_USER,
   PUT_USER,
+  GET_A_USERPROFILE,
 } from "../../assets/js/API_AUTH";
 
 import "../../styles/profilestyles.css";
@@ -16,7 +17,13 @@ const Profile = () => {
   const [isImageSaved, setIsImageSaved] = useState(false);
   const [userData, setUserData] = useState([]);
   const [editDescription, setEditDescription] = useState(false);
+  const [description, setDescription] = useState("");
+  const [pinnedOne, setPinnedOne] = useState("");
+  const [pinnedTwo, setPinnedTwo] = useState("");
+  const [pinnedThree, setPinnedThree] = useState("");
+  const [profileData, setProfileData] = useState([]);
 
+  // PROFILE PICTURE FUNCTIONS
   useEffect(() => {
     fetch(`${GET_A_USER}/${localStorage.getItem("id")}`)
       .then((res) => res.json())
@@ -66,6 +73,22 @@ const Profile = () => {
     }
   }, [isImageSaved]);
 
+  // PROFILE PICTURE FUNCTIONS
+
+  // USER PROFILE FUNCTIONS
+  useEffect(() => {
+    fetch(`${GET_A_USERPROFILE}/${localStorage.getItem("id")}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProfileData(data);
+        setDescription(data.description);
+        setPinnedOne(data.pinnedOne);
+        setPinnedTwo(data.pinnedTwo);
+        setPinnedThree(data.pinnedThree);
+      });
+  }, []);
+  // USER PROFILE FUNCTIONS
+
   return (
     <div>
       <div className="home-main__wrapper">
@@ -113,10 +136,7 @@ const Profile = () => {
         <div className="profile-summary-pinned__wrapper">
           <div className="profile-user-summary__wrapper">
             <div className="profile-user-summary-second__wrapper">
-              <Globe size={17} color="#454545" />
-              <a href="#" style={{ textDecoration: "none" }}>
-                https://www.mysite.com
-              </a>
+              {description}
             </div>
           </div>
 
