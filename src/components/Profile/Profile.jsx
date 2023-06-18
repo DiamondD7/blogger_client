@@ -15,6 +15,7 @@ const Profile = () => {
   const [userImagePathName, setUserImagePathName] = useState("");
   const [isImageSaved, setIsImageSaved] = useState(false);
   const [userData, setUserData] = useState([]);
+  const [editDescription, setEditDescription] = useState(false);
 
   useEffect(() => {
     fetch(`${GET_A_USER}/${localStorage.getItem("id")}`)
@@ -127,12 +128,39 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <button className="edit-profile-description__button">EDIT</button>
+        <button
+          className="edit-profile-description__button"
+          onClick={() => setEditDescription(true)}
+        >
+          EDIT
+        </button>
 
         <div className="profile-main__wrapper">
           <ProfileContent />
         </div>
       </div>
+
+      {editDescription === true ? (
+        <div>
+          <div className="overlay"></div>
+          <div className="description-container__wrapper">
+            <textarea
+              className="description__wrapper"
+              placeholder="Tell the world about yourself"
+            ></textarea>
+
+            <button
+              className="cancel__btn"
+              onClick={() => setEditDescription(false)}
+            >
+              CANCEL
+            </button>
+            <button className="update__btn">UPDATE</button>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
