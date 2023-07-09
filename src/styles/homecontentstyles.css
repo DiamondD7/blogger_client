@@ -13,7 +13,7 @@
 
 .image-blog {
   width: 400px;
-  height: 300px;
+  height: 350px;
   object-fit: cover;
 }
 
@@ -29,6 +29,11 @@
 
 .content-link-btn h1 {
   width: 600px;
+}
+
+
+.content-link__wrapper{
+  margin-bottom: 30px;
 }
 
 .content-link-btn{
@@ -107,4 +112,18 @@
 
 .hidden{
   display: none;
+}
+
+
+.btn-menuArticle__wrapper{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+
+.btn-article__menu{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

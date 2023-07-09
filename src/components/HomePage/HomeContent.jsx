@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Articles from "../Article/Article";
-import { Funnel, Plus } from "phosphor-react";
+import { Funnel, Plus, DotsThree } from "phosphor-react";
 import { GET_POSTS, DELETE_POST, GET_USERS } from "../../assets/js/API_AUTH";
 import moment from "moment";
 
@@ -57,32 +57,43 @@ const HomeContent = () => {
           <div>
             {feedData.map((items) => (
               <div className="content-main__wrapper" key={items.id}>
-                <img
-                  className="image-blog"
-                  src={`https://localhost:7167/uploads/${items.postImagePathName}`}
-                  alt="example pic"
-                />
+                <div>
+                  <img
+                    className="image-blog"
+                    src={`https://localhost:7167/uploads/${items.postImagePathName}`}
+                    alt="example pic"
+                  />
+                </div>
 
-                <button
-                  className="content-link-btn"
-                  onClick={(e) => openArticle(e, items)}
-                >
-                  <h1>{items.postTitle}</h1>
-                  <div className="content-details__wrapper">
-                    {usersData.map((users) => (
-                      <p key={users.userId} className="author">
-                        {items.postUserId === users.userId &&
-                        items.isAnon === "false"
-                          ? `${users.userFirstName} ${users.userLastName}`
-                          : items.postUserId === users.userId &&
-                            items.isAnon === "true"
-                          ? "Anonymous"
-                          : ""}
-                      </p>
-                    ))}
-                    <p>{moment(items.createdOn).format("DD/MM/YYYY")}</p>
+                <div>
+                  <div className="btn-menuArticle__wrapper">
+                    <button className="btn-article__menu">
+                      <DotsThree size={26} color="rgba(244,244,244,0.5)" />
+                    </button>
                   </div>
-                </button>
+                  <div className="content-link__wrapper">
+                    <button
+                      className="content-link-btn"
+                      onClick={(e) => openArticle(e, items)}
+                    >
+                      <h1>{items.postTitle}</h1>
+                      <div className="content-details__wrapper">
+                        {usersData.map((users) => (
+                          <p key={users.userId} className="author">
+                            {items.postUserId === users.userId &&
+                            items.isAnon === "false"
+                              ? `${users.userFirstName} ${users.userLastName}`
+                              : items.postUserId === users.userId &&
+                                items.isAnon === "true"
+                              ? "Anonymous"
+                              : ""}
+                          </p>
+                        ))}
+                        <p>{moment(items.createdOn).format("DD/MM/YYYY")}</p>
+                      </div>
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
