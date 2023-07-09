@@ -32,9 +32,9 @@
 }
 
 
-.content-link__wrapper{
+/* .content-link__wrapper{
   margin-bottom: 30px;
-}
+} */
 
 .content-link-btn{
   background-color: red;
@@ -127,3 +127,40 @@
   border: none;
   cursor: pointer;
 }
+
+.menu-modal__wrapper{
+  display: inline-block;
+  position: relative;
+  top:-20px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.21);
+  font-size: 11px;
+
+}
+.menu-modal__wrapper ul{
+  display: flex;
+  list-style: none;
+}
+.menu-modal__wrapper ul li{
+  margin-right: 20px;
+  
+}
+
+.menu-modal__wrapper ul li button{
+  color: rgba(217, 217, 217, 0.66);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color .5s ease-in-out;
+}
+
+.menu-modal__wrapper ul li button:hover{
+  color: #f3f3f3;
+  transition: color .5s ease-in-out;
+}
+
+.menu-modal__wrapper ul li:nth-last-child(1) button:hover{
+  color: red;
+  transition: color .5s ease-in-out;
+}
+

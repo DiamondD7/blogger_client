@@ -66,10 +66,22 @@ const HomeContent = () => {
                 </div>
 
                 <div>
-                  <div className="btn-menuArticle__wrapper">
-                    <button className="btn-article__menu">
-                      <DotsThree size={26} color="rgba(244,244,244,0.5)" />
-                    </button>
+                  <div className="menu-modal__wrapper">
+                    <ul>
+                      <li></li>
+                      <li>
+                        <button>Report</button>
+                      </li>
+                      <li>
+                        <button>Save</button>
+                      </li>
+                      <li>
+                        <button>Edit</button>
+                      </li>
+                      <li>
+                        <button>Delete</button>
+                      </li>
+                    </ul>
                   </div>
                   <div className="content-link__wrapper">
                     <button
