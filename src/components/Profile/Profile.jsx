@@ -7,6 +7,7 @@ import {
   GET_A_USER,
   PUT_USER,
   GET_A_USERPROFILE,
+  EDIT_USER_PROFILE,
 } from "../../assets/js/API_AUTH";
 
 import "../../styles/profilestyles.css";
@@ -19,6 +20,7 @@ const Profile = () => {
   const [editDescription, setEditDescription] = useState(false);
   const [description, setDescription] = useState("");
 
+  const [currentUserId, setCurrentUserId] = useState(0);
   const [pinnedOne, setPinnedOne] = useState("");
   const [pinnedTwo, setPinnedTwo] = useState("");
   const [pinnedThree, setPinnedThree] = useState("");
@@ -82,13 +84,41 @@ const Profile = () => {
       .then((res) => res.json())
       .then((data) => {
         setProfileData(data); //stored the whole JSON data
+        setCurrentUserId(data.userId);
         setDescription(data.description);
         setPinnedOne(data.pinnedOne);
         setPinnedTwo(data.pinnedTwo);
         setPinnedThree(data.pinnedThree);
+        console.log(data);
       });
   }, []);
   // USER PROFILE FUNCTIONS
+
+  // SET DESCRIPTION-START
+
+  const settingDescription = () => {
+    fetch(`${EDIT_USER_PROFILE}/${localStorage.getItem("id")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        UserId: currentUserId,
+        Description: description,
+        PinnedOne: pinnedOne,
+        PinnedTwo: pinnedTwo,
+        PinnedThree: pinnedThree,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setEditDescription(false);
+      });
+  };
+
+  // SET DESCRIPTION-END
 
   return (
     <div>
@@ -168,6 +198,8 @@ const Profile = () => {
             <textarea
               className="description__wrapper"
               placeholder="Tell the world about yourself"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             ></textarea>
 
             <button
@@ -176,7 +208,9 @@ const Profile = () => {
             >
               CANCEL
             </button>
-            <button className="update__btn">UPDATE</button>
+            <button className="update__btn" onClick={settingDescription}>
+              UPDATE
+            </button>
           </div>
         </div>
       ) : (
