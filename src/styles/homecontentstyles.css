@@ -164,3 +164,30 @@
   transition: color .5s ease-in-out;
 }
 
+
+.delete-prompt__wrapper{
+  position: absolute;
+  top:40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.delete-prompt__wrapper p{
+  color: #f3f3f3;
+}
+
+.cancel-delete-prompt__btn{
+  color: limegreen;
+  border: none;
+  background-color: transparent;
+  margin:10px 10px 0 0;
+  cursor: pointer;
+}
+
+.delete-prompt__btn{
+  color: red;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

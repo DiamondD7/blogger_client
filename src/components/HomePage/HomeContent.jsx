@@ -10,6 +10,7 @@ const HomeContent = () => {
   const [feedData, setFeedData] = useState(null);
   const [usersData, setUsersData] = useState([]);
   const [articleOpen, setArticleOpen] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   const [article, setArticle] = useState([]);
   useEffect(() => {
@@ -34,8 +35,31 @@ const HomeContent = () => {
     setArticle(article);
   };
 
+  const deletePost = (id) => {
+    fetch(`${DELETE_POST}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        //this is to refresh the updated posts
+        fetch(GET_POSTS)
+          .then((res) => res.json())
+          .then((data) => {
+            setFeedData(data);
+            setDeleteModal(!deleteModal);
+          });
+      });
+  };
+
   return (
     <div>
+      <div className={deleteModal === true ? "overlay" : ""}></div>
       <div>
         <div className="filter-icon__wrapper">
           <button className="filter-icon">
@@ -79,10 +103,31 @@ const HomeContent = () => {
                         <button>Edit</button>
                       </li>
                       <li>
-                        <button>Delete</button>
+                        <button onClick={() => setDeleteModal(true)}>
+                          Delete
+                        </button>
                       </li>
                     </ul>
                   </div>
+
+                  {deleteModal && (
+                    <div className="delete-prompt__wrapper">
+                      <p>Are you sure you want to delete?</p>
+                      <button
+                        className="cancel-delete-prompt__btn"
+                        onClick={() => setDeleteModal(!deleteModal)}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="delete-prompt__btn"
+                        onClick={() => deletePost(items.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
+
                   <div className="content-link__wrapper">
                     <button
                       className="content-link-btn"
