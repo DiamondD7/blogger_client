@@ -35,8 +35,6 @@ label{
 .form-article-coverpicture__wrapper{
     margin-top: 10px;
     color: white;
-
-    display: flex;
 }
 
 .form-article-coverpicture__wrapper button{
@@ -48,8 +46,15 @@ label{
     color: white;
 }
 
+.form-article-coverpicture__wrapper input{
+    margin-top: 5px;
+    color: white;
+    display: flex;
+}
+
 .form-article-label__text{
     margin-right: 10px;
+    font-size: 12px;
 }
 
 .form-article-anon__wrapper{

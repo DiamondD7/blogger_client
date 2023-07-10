@@ -101,9 +101,9 @@ const AddArticle = ({ loggedUser }) => {
         <div className="form-article-coverpicture__wrapper">
           <div>
             <label className="form-article-label__text">Cover Picture</label>
-            <input type="file" onChange={imageOnChange} />
           </div>
           <div>
+            <input type="file" onChange={imageOnChange} />
             <button
               className="save-btn__imageCover"
               onClick={saveImage}
