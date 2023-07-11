@@ -131,6 +131,7 @@ const Profile = () => {
             <label className="btn-image__unknown">
               <Plus size={12} color="white" />
               <input
+                className="profilePicture__input"
                 type="file"
                 onChange={(e) => setUserProfilePicture(e.target.files[0])}
               />

@@ -91,7 +91,7 @@
 
 
 
-input[type="file"]{
+.profilePicture__input{
   display: none;
 }
 

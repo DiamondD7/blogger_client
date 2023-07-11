@@ -6,14 +6,20 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../../styles/addarticle.css";
 
-const AddArticle = ({ loggedUser }) => {
+const AddArticle = ({ loggedUser, article, setEditModal }) => {
   const userId = JSON.parse(localStorage.getItem("id"));
   const [coverImage, setCoverImage] = useState(null);
-  const [description, setDescription] = useState("");
-  const [postTitle, setPostTitle] = useState("");
-  const [postBody, setPostBody] = useState("");
+  const [description, setDescription] = useState(
+    article === undefined ? "" : article.description
+  );
+  const [postTitle, setPostTitle] = useState(
+    article === undefined ? "" : article.postTitle
+  );
+  const [postBody, setPostBody] = useState(
+    article === undefined ? "" : article.postBody
+  );
   const [postImagePathName, setPostImagePathName] = useState("");
-  const [anon, setAnon] = useState("");
+  const [anon, setAnon] = useState(article === undefined ? "" : article.isAnon);
 
   const modules = {
     toolbar: [
@@ -88,12 +94,14 @@ const AddArticle = ({ loggedUser }) => {
           className="form-article-title__input"
           type="text"
           placeholder="Title"
+          value={postTitle}
           onChange={(e) => setPostTitle(e.target.value)}
         />
         <div>
           <input
             className="form-article-description__input"
             type="text"
+            value={description}
             placeholder="Description"
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -103,7 +111,12 @@ const AddArticle = ({ loggedUser }) => {
             <label className="form-article-label__text">Cover Picture</label>
           </div>
           <div>
-            <input type="file" onChange={imageOnChange} />
+            <input
+              className="imageCover__input"
+              type="file"
+              onChange={imageOnChange}
+            />
+
             <button
               className="save-btn__imageCover"
               onClick={saveImage}
@@ -123,6 +136,7 @@ const AddArticle = ({ loggedUser }) => {
               type="radio"
               id="anonymous"
               value="true"
+              checked={anon === "true" ? "checked" : ""}
               name="anonymousorno"
               onChange={(e) => setAnon(e.target.value)}
             />
@@ -132,14 +146,24 @@ const AddArticle = ({ loggedUser }) => {
               type="radio"
               id="notanonymous"
               value="false"
+              checked={anon === "false" ? "checked" : ""}
               name="anonymousorno"
               onChange={(e) => setAnon(e.target.value)}
             />
           </div>
           <div className="form-article-submission__wrapper">
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              Back
-            </Link>
+            {article === undefined ? (
+              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                Back
+              </Link>
+            ) : (
+              <button
+                className="form-article-btn__cancel"
+                onClick={() => setEditModal(false)}
+              >
+                Cancel
+              </button>
+            )}
             <button
               type="submit"
               className={`form-article-btn__submit ${
